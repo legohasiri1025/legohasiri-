@@ -5,45 +5,44 @@ using namespace std;
 template<typename T>
 class Vec2 {
 public:
-
 	T x, y;
 
 	/// <summary>
-	/// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	/// </summary>
 	Vec2() = default;
 
 	/// <summary>
-	/// ‘ã“üƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	/// ä»£å…¥ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	/// </summary>
-	/// <param name="x">‚˜‚Ì‘å‚«‚³AÀ•W</param>
-	/// <param name="y">‚™‚Ì‘å‚«‚³AÀ•W</param>
+	/// <param name="x">ï½˜ã®å¤§ãã•ã€åº§æ¨™</param>
+	/// <param name="y">ï½™ã®å¤§ãã•ã€åº§æ¨™</param>
 	Vec2(T x, T y) :x(x), y(y) {}
 
 
 	template<typename t>
 	/// <summary>
-	/// ‘ã“üƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	/// ä»£å…¥ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	/// </summary>
-	/// <param name="vec2">‚Ù‚©‚ÌVec2(Œ^‚ÍƒLƒƒƒXƒg‚³‚ê‚é)</param>
+	/// <param name="vec2">ã»ã‹ã®Vec2(å‹ã¯ã‚­ãƒ£ã‚¹ãƒˆã•ã‚Œã‚‹)</param>
 	Vec2(Vec2<t> vec2) : x(static_cast<T>( vec2.x)), y(static_cast<T>(vec2.y)) {}
 
 	/// <summary>
-	/// OŠpŒ`‚ÌÎ•Ó‚Ì’·‚³‚ğ•Ô‚·
+	/// ä¸‰è§’å½¢ã®æ–œè¾ºã®é•·ã•ã‚’è¿”ã™
 	/// </summary>
 	double GetLength() const{
 		return sqrt(x * x + y * y);
 	}
 
 	/// <summary>
-	/// OŠpŒ`‚ÌÎ•Ó‚Ì2æ‚ğ•Ô‚·
+	/// ä¸‰è§’å½¢ã®æ–œè¾ºã®2ä¹—ã‚’è¿”ã™
 	/// </summary>
 	constexpr double GetLengthSquare() const{
 		return x * x + y * y;
 	}
 
 	/// <summary>
-	/// OŠpŒ`‚Ìƒ‰ƒWƒAƒ“Šp‚ğ•Ô‚·
+	/// ä¸‰è§’å½¢ã®ãƒ©ã‚¸ã‚¢ãƒ³è§’ã‚’è¿”ã™
 	/// </summary>
 	double GetAngle() const{
 		return std::atan(y / x);
@@ -51,7 +50,7 @@ public:
 
 	template<typename t>
 	/// <summary>
-	/// 2“_ŠÔ‚Ì‚È‚·Šp‚Ìƒ‰ƒWƒAƒ“Šp‚ğ•Ô‚·
+	/// 2ç‚¹é–“ã®ãªã™è§’ã®ãƒ©ã‚¸ã‚¢ãƒ³è§’ã‚’è¿”ã™
 	/// </summary>
 	/// <param name="other"></param>
 	/// <returns></returns>
@@ -60,38 +59,38 @@ public:
 	}
 
 	/// <summary>
-	/// x¤y‚Ìâ‘Î’l‚ğ•Ô‚·
+	/// xï½¤yã®çµ¶å¯¾å€¤ã‚’è¿”ã™
 	/// </summary>
 	T abs() const{
 		return { std::abs(x), std::abs(y) };
 	}
 
 	/// <summary>
-	/// OŠpŒ`‚Ì“àÏ‚ğ•Ô‚·
+	/// ä¸‰è§’å½¢ã®å†…ç©ã‚’è¿”ã™
 	/// </summary>
-	/// <param name="other">‚Ù‚©‚ÌVec2</param>
+	/// <param name="other">ã»ã‹ã®Vec2</param>
 	constexpr double Dot(const Vec2& other) const{
 		return x * other.x + y * other.y;
 	}
 
 	/// <summary>
-	/// 2“_ŠÔ‚Ì‹——£‚ğ•Ô‚·
+	/// 2ç‚¹é–“ã®è·é›¢ã‚’è¿”ã™
 	/// </summary>
-	/// <param name="other">‚Ù‚©‚ÌVec2</param>
+	/// <param name="other">ã»ã‹ã®Vec2</param>
 	double Distance(const Vec2& other) const{
 		return sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y));
 	}
 
 	/// <summary>
-	/// ŒX‚«‚ğ•Ô‚·
+	/// å‚¾ãã‚’è¿”ã™
 	/// </summary>
-	/// <returns>0‚Æ(x, y)‚ÌŒX‚«</returns>
+	/// <returns>0ã¨(x, y)ã®å‚¾ã</returns>
 	double Slope() const{
 		return (this.y) / (this.x);
 	}
 
 	/// <summary>
-	/// “ñ“_ŠÔ‚ÌŒX‚«‚ğ‹‚ß‚é
+	/// äºŒç‚¹é–“ã®å‚¾ãã‚’æ±‚ã‚ã‚‹
 	/// </summary>
 	/// <param name="other"></param>
 	/// <returns></returns>
@@ -100,7 +99,7 @@ public:
 	}
 
 	/// <summary>
-	/// Î•Ó‚Ì’·‚³‚Æ‚Ì”ä‚ğ•Ô‚·
+	/// æ–œè¾ºã®é•·ã•ã¨ã®æ¯”ã‚’è¿”ã™
 	/// </summary>
 	/// <returns></returns>
 	Vec2 Normalizes() const {
@@ -108,7 +107,7 @@ public:
 	}
 
 	/// <summary>
-	/// 0ƒxƒNƒgƒ‹‚©‚ğ•Ô‚·
+	/// 0ãƒ™ã‚¯ãƒˆãƒ«ã‹ã‚’è¿”ã™
 	/// </summary>
 	constexpr bool isZero() const {
 		return x == 0.0 && y == 0.0;
