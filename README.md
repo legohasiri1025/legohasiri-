@@ -1,5 +1,5 @@
-# legohasiri-
-lego hasiriが作ったものを公開する場所
+# lego hasiriが作ったものを公開する場所に関する説明
+
 
 不具合、要望等はIssueで報告してください。
 
